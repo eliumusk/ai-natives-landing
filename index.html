@@ -20,10 +20,14 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="AI Natives · AI原住民">
 
+<!-- SEO: Open Graph Image -->
+<meta property="og:image" content="https://ai-natives.business/students-ai-classroom.jpg">
+
 <!-- SEO: Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Natives · AI原住民 — 面向AI时代的少儿思维培育">
 <meta name="twitter:description" content="让每个孩子成为AI时代的原住民。面向小学生的AI思维素质教育课程，不学编程，学思维。">
+<meta name="twitter:image" content="https://ai-natives.business/students-ai-classroom.jpg">
 
 <!-- SEO: Structured Data -->
 <script type="application/ld+json">
@@ -504,11 +508,7 @@ section { padding: var(--space-section) 40px; }
   aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
-  background: linear-gradient(135deg, #E8D5C4 0%, #C9B8A8 50%, #D4C4B0 100%);
 }
-.work-img.placeholder-1 { background: linear-gradient(135deg, #FFD4B8 0%, #FF9A76 50%, #E07A5F 100%); }
-.work-img.placeholder-2 { background: linear-gradient(135deg, #B8D4E3 0%, #7EB0CC 50%, #4A6FA5 100%); }
-.work-img.placeholder-3 { background: linear-gradient(135deg, #B8E3C8 0%, #7ECC96 50%, #5C8A6F 100%); }
 .work-info { padding: 20px 24px; }
 .work-title {
   font-family: var(--serif-cn);
@@ -520,6 +520,53 @@ section { padding: var(--space-section) 40px; }
   font-size: 0.78rem;
   color: var(--text-muted);
   font-weight: 300;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { background: var(--card-bg); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.testimonial-card {
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  position: relative;
+}
+.testimonial-card::before {
+  content: '\201C';
+  font-family: var(--serif-en);
+  font-size: 3rem;
+  color: var(--accent);
+  line-height: 1;
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  opacity: 0.4;
+}
+.testimonial-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+.testimonial-author {
+  font-family: var(--serif-cn);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.testimonial-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-top: 2px;
 }
 
 /* ===== TEAM ===== */
@@ -761,6 +808,7 @@ footer .footer-logo {
   .capabilities { grid-template-columns: 1fr; gap: 20px; }
   .cur-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .works-grid { grid-template-columns: 1fr; gap: 20px; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; gap: 32px; }
   .team-badges { flex-direction: column; gap: 20px; }
   .modal-content { padding: 32px 24px; }
@@ -780,6 +828,7 @@ footer .footer-logo {
     <li><a href="#philosophy">理念</a></li>
     <li><a href="#curriculum">课程</a></li>
     <li><a href="#works">作品</a></li>
+    <li><a href="#testimonials">评价</a></li>
     <li><a href="#team">团队</a></li>
   </ul>
   <a href="#contact" class="nav-cta" data-modal="wechat">预约试听</a>
@@ -793,6 +842,7 @@ footer .footer-logo {
   <a href="#philosophy" class="mobile-nav-link">理念</a>
   <a href="#curriculum" class="mobile-nav-link">课程</a>
   <a href="#works" class="mobile-nav-link">作品</a>
+  <a href="#testimonials" class="mobile-nav-link">评价</a>
   <a href="#team" class="mobile-nav-link">团队</a>
   <a href="#contact" class="mobile-cta" data-modal="wechat">预约试听</a>
 </div>
@@ -803,7 +853,7 @@ footer .footer-logo {
   <p class="hero-eyebrow">面向 8–12 岁 · 上海交通大学 × 华东师范大学</p>
   <h1 class="hero-title">让每个孩子<br>成为 <em>AI</em> 时代的原住民</h1>
   <p class="hero-sub">不学编程，学思维。<br>培养孩子向AI提问、指挥AI、用AI创造的核心能力。</p>
-  <a href="#contact" class="hero-cta" data-modal="wechat">预约免费试听课</a>
+  <a href="#contact" class="hero-cta" data-modal="wechat">免费领取试听名额</a>
 </section>
 
 <!-- PHILOSOPHY -->
@@ -910,25 +960,52 @@ footer .footer-logo {
 
     <div class="works-grid">
       <article class="work-card reveal reveal-delay-1">
-        <div class="work-img placeholder-1" role="img" aria-label="太空冒险互动游戏截图"></div>
+        <img class="work-img" src="students-ai-classroom.jpg" alt="学员在教室用AI协作制作互动游戏" width="1200" height="900" loading="lazy">
         <div class="work-info">
-          <h3 class="work-title">太空冒险互动游戏</h3>
-          <p class="work-meta">小明 · 三年级 · 第2节课作品</p>
+          <h3 class="work-title">AI协作互动游戏</h3>
+          <p class="work-meta">课堂实拍 · 学员用AI指令设计游戏关卡</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-2">
-        <div class="work-img placeholder-2" role="img" aria-label="AI生成的奇幻绘本封面"></div>
+        <img class="work-img" src="students-drone-outdoor.jpg" alt="学员在户外用平板指挥无人机航拍" width="1200" height="900" loading="lazy">
         <div class="work-info">
-          <h3 class="work-title">AI生成的奇幻绘本</h3>
-          <p class="work-meta">小芳 · 四年级 · 第1节课作品</p>
+          <h3 class="work-title">户外无人机航拍探索</h3>
+          <p class="work-meta">课堂实拍 · 学员用AI规划无人机飞行路线</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-3">
-        <div class="work-img placeholder-3" role="img" aria-label="3D打印火箭手机支架实物照片"></div>
+        <img class="work-img" src="student-3d-print-work.jpg" alt="学员展示自己的3D打印作品" width="1200" height="900" loading="lazy">
         <div class="work-info">
-          <h3 class="work-title">3D打印火箭手机支架</h3>
-          <p class="work-meta">小宇 · 三年级 · 第7节课作品</p>
+          <h3 class="work-title">3D打印创意作品</h3>
+          <p class="work-meta">课堂实拍 · 学员展示AI辅助设计的3D打印成果</p>
         </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <p class="section-label reveal">Parent Reviews</p>
+    <h2 class="section-title reveal">家长怎么说</h2>
+    <p class="section-desc reveal">听听已经参加课程的家长们的真实反馈。</p>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card reveal reveal-delay-1">
+        <p class="testimonial-text">孩子以前觉得AI就是聊天机器人，上了两节课之后，居然自己用AI做了一个小游戏给我们玩。最惊喜的是他现在提问题比以前清楚多了，逻辑性强了很多。</p>
+        <p class="testimonial-author">乐乐妈妈</p>
+        <p class="testimonial-meta">三年级 · 已完成8节课</p>
+      </article>
+      <article class="testimonial-card reveal reveal-delay-2">
+        <p class="testimonial-text">之前给孩子报过编程班，学了半年还是在拖积木块，兴趣越来越低。这个课完全不一样，每节课都有新东西做出来，孩子每次下课都兴奋地跟我讲今天做了什么。</p>
+        <p class="testimonial-author">小宇爸爸</p>
+        <p class="testimonial-meta">四年级 · 正在上课中</p>
+      </article>
+      <article class="testimonial-card reveal reveal-delay-3">
+        <p class="testimonial-text">说实话一开始觉得"AI课"是噱头，试听完才发现是认真的。老师会引导孩子思考"为什么AI这样回答"，不是简单地玩工具。女儿现在写作文都会先列提纲了。</p>
+        <p class="testimonial-author">朵朵妈妈</p>
+        <p class="testimonial-meta">二年级 · 已完成8节课</p>
       </article>
     </div>
   </div>
@@ -984,9 +1061,12 @@ footer .footer-logo {
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
-    <h2 class="section-title reveal">让孩子早一步，<br>成为AI时代的原住民</h2>
-    <p class="cta-sub reveal">扫码添加老师微信，预约一节免费试听课。<br>名额有限，每班仅收6-8名学员。</p>
-    <button type="button" class="cta-btn reveal" data-modal="wechat">预约试听课</button>
+    <h2 class="section-title reveal">AI时代已来，<br>别让孩子只做旁观者</h2>
+    <p class="cta-sub reveal">扫码添加老师微信，免费领取试听名额。<br>不满意不收任何费用，零风险体验。</p>
+    <button type="button" class="cta-btn reveal" data-modal="wechat">免费领取试听名额</button>
+    <p class="cta-contact reveal" style="margin-top: 20px; color: rgba(250,247,242,0.5); font-size: 0.85rem;">
+      8节课精品小班 · 详情咨询老师
+    </p>
     <p class="cta-contact reveal" style="margin-top: 32px;">
       或致电 <a href="tel:19121223457">191-2122-3457</a> · 李老师
     </p>
