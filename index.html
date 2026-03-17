@@ -3,10 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Natives · AI原住民 — 面向AI时代的少儿思维培育</title>
-<meta name="description" content="让每个孩子成为AI时代的原住民。面向小学生的AI思维素质教育课程，不学编程，学思维。">
+
+<!-- SEO: Primary Meta Tags -->
+<title>AI Natives · AI原住民 — 面向AI时代的少儿思维培育 | 上海交大×华东师大</title>
+<meta name="description" content="让每个孩子成为AI时代的原住民。面向小学二至五年级的AI思维素质教育课程，由上海交通大学与华东师范大学联合研发。不学编程，学思维。6-8人精品小班，预约免费试听。">
+<meta name="keywords" content="AI教育,少儿AI课程,AI思维培训,人工智能教育,AI原住民,少儿编程替代,上海AI课程,STEM教育,AI素质教育,小学AI课">
+<meta name="author" content="AI Natives · AI原住民教育团队">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai-natives-landing.vercel.app/">
+
+<!-- SEO: Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-natives-landing.vercel.app/">
+<meta property="og:title" content="AI Natives · AI原住民 — 面向AI时代的少儿思维培育">
+<meta property="og:description" content="让每个孩子成为AI时代的原住民。面向小学生的AI思维素质教育课程，由上海交大与华东师大联合研发。不学编程，学思维。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="AI Natives · AI原住民">
+
+<!-- SEO: Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Natives · AI原住民 — 面向AI时代的少儿思维培育">
+<meta name="twitter:description" content="让每个孩子成为AI时代的原住民。面向小学生的AI思维素质教育课程，不学编程，学思维。">
+
+<!-- SEO: Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "AI Natives · AI原住民",
+  "description": "面向AI时代的少儿思维培育，由上海交通大学与华东师范大学联合研发",
+  "url": "https://ai-natives-landing.vercel.app/",
+  "telephone": "+8619121223457",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "上海",
+    "addressCountry": "CN"
+  },
+  "sameAs": [],
+  "offers": {
+    "@type": "Offer",
+    "name": "AI思维素质教育课程",
+    "description": "8节课，从好奇到创造。面向小学二至五年级，6-8人精品小班。",
+    "price": "0",
+    "priceCurrency": "CNY",
+    "availability": "https://schema.org/LimitedAvailability",
+    "validFrom": "2026-01-01"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "AI原住民少儿思维课程",
+  "description": "培养孩子向AI提问、指挥AI、用AI创造的核心能力。8节课，虚拟与物理交替体验，三大能力螺旋上升。",
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Natives · AI原住民",
+    "url": "https://ai-natives-landing.vercel.app/"
+  },
+  "educationalLevel": "小学二至五年级",
+  "numberOfCredits": 8,
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "上海",
+        "addressCountry": "CN"
+      }
+    }
+  }
+}
+</script>
+
+<!-- Performance: Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<meta name="theme-color" content="#FAF7F2">
+
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -91,6 +172,61 @@ nav.scrolled {
   letter-spacing: 0.03em;
 }
 .nav-cta:hover { background: var(--text-secondary); }
+
+/* Mobile hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  z-index: 110;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: all 0.3s;
+}
+.nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(250, 247, 242, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  font-family: var(--serif-cn);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.mobile-menu .mobile-cta {
+  margin-top: 16px;
+  font-family: var(--sans-cn);
+  font-size: 1rem;
+  padding: 14px 36px;
+  background: var(--text-primary);
+  color: var(--bg);
+  border-radius: 100px;
+  text-decoration: none;
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -517,6 +653,84 @@ footer .footer-logo {
   margin-bottom: 12px;
 }
 
+/* ===== WECHAT MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px 36px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+}
+.modal-overlay.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  border: none;
+  background: var(--bg);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--border); color: var(--text-primary); }
+.modal-title {
+  font-family: var(--serif-cn);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.modal-qr {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  display: block;
+}
+.modal-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -540,6 +754,8 @@ footer .footer-logo {
   nav { padding: 16px 24px; }
   nav.scrolled { padding: 12px 24px; }
   .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
   section { padding: calc(var(--space-section) * 0.7) 24px; }
   .hero { padding: 100px 24px 60px; min-height: 90vh; }
   .capabilities { grid-template-columns: 1fr; gap: 20px; }
@@ -547,6 +763,8 @@ footer .footer-logo {
   .works-grid { grid-template-columns: 1fr; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; gap: 32px; }
   .team-badges { flex-direction: column; gap: 20px; }
+  .modal-content { padding: 32px 24px; }
+  .modal-qr { width: 180px; height: 180px; }
 }
 @media (max-width: 480px) {
   .cur-grid { grid-template-columns: 1fr; }
@@ -556,24 +774,37 @@ footer .footer-logo {
 <body>
 
 <!-- NAVIGATION -->
-<nav id="navbar">
-  <a href="#" class="nav-logo"><span>AI</span> Natives</a>
+<nav id="navbar" role="navigation" aria-label="主导航">
+  <a href="#" class="nav-logo" aria-label="AI Natives 首页"><span>AI</span> Natives</a>
   <ul class="nav-links">
     <li><a href="#philosophy">理念</a></li>
     <li><a href="#curriculum">课程</a></li>
     <li><a href="#works">作品</a></li>
     <li><a href="#team">团队</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">预约试听</a>
+  <a href="#contact" class="nav-cta" data-modal="wechat">预约试听</a>
+  <button class="nav-hamburger" aria-label="打开菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="移动端导航">
+  <a href="#philosophy" class="mobile-nav-link">理念</a>
+  <a href="#curriculum" class="mobile-nav-link">课程</a>
+  <a href="#works" class="mobile-nav-link">作品</a>
+  <a href="#team" class="mobile-nav-link">团队</a>
+  <a href="#contact" class="mobile-cta" data-modal="wechat">预约试听</a>
+</div>
+
 <!-- HERO -->
+<main>
 <section class="hero">
   <p class="hero-eyebrow">面向 8–12 岁 · 上海交通大学 × 华东师范大学</p>
   <h1 class="hero-title">让每个孩子<br>成为 <em>AI</em> 时代的原住民</h1>
   <p class="hero-sub">不学编程，学思维。<br>培养孩子向AI提问、指挥AI、用AI创造的核心能力。</p>
-  <a href="#contact" class="hero-cta">预约免费试听课</a>
-  <div class="hero-scroll">SCROLL</div>
+  <a href="#contact" class="hero-cta" data-modal="wechat">预约免费试听课</a>
+  <div class="hero-scroll" aria-hidden="true">SCROLL</div>
 </section>
 
 <!-- PHILOSOPHY -->
@@ -589,24 +820,24 @@ footer .footer-logo {
     </div>
 
     <div class="capabilities">
-      <div class="cap-card reveal reveal-delay-1">
-        <div class="cap-num">01</div>
+      <article class="cap-card reveal reveal-delay-1">
+        <div class="cap-num" aria-hidden="true">01</div>
         <h3 class="cap-title">提问力</h3>
         <p class="cap-en">Ask Better Questions</p>
         <p class="cap-desc">你说得越清楚，AI就越厉害。学会用精确的语言描述需求，是AI时代最基础的能力。</p>
-      </div>
-      <div class="cap-card reveal reveal-delay-2">
-        <div class="cap-num">02</div>
+      </article>
+      <article class="cap-card reveal reveal-delay-2">
+        <div class="cap-num" aria-hidden="true">02</div>
         <h3 class="cap-title">指挥力</h3>
         <p class="cap-en">Command with Clarity</p>
         <p class="cap-desc">把一个大想法拆成小步骤，逐步指挥AI完成。像导演一样，让AI成为你最好的执行者。</p>
-      </div>
-      <div class="cap-card reveal reveal-delay-3">
-        <div class="cap-num">03</div>
+      </article>
+      <article class="cap-card reveal reveal-delay-3">
+        <div class="cap-num" aria-hidden="true">03</div>
         <h3 class="cap-title">创造力</h3>
         <p class="cap-en">Create with AI</p>
         <p class="cap-desc">脑子里的想法，用AI变成真的东西。一个游戏、一件3D打印作品、一个属于自己的项目。</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -619,54 +850,54 @@ footer .footer-logo {
     <p class="section-desc reveal">虚拟与物理交替体验，三大能力螺旋上升。每节课都有一个让孩子惊叹的瞬间。</p>
 
     <div class="cur-grid">
-      <div class="cur-card reveal">
+      <article class="cur-card reveal">
         <p class="cur-num">01</p>
         <h3 class="cur-name">AI听得懂我说话！</h3>
         <p class="cur-desc-text">用AI画画、讲故事、做游戏，发现AI的能力边界</p>
         <span class="cur-tag">屏幕AI</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-1">
+      </article>
+      <article class="cur-card reveal reveal-delay-1">
         <p class="cur-num">02</p>
         <h3 class="cur-name">我让AI帮我做游戏</h3>
         <p class="cur-desc-text">像导演一样分步指挥AI，做出自己的可玩游戏</p>
         <span class="cur-tag">屏幕AI</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-2">
+      </article>
+      <article class="cur-card reveal reveal-delay-2">
         <p class="cur-num">03</p>
         <h3 class="cur-name">AI也能动起来！</h3>
         <p class="cur-desc-text">用语言指挥AI控制真实机器人完成任务</p>
         <span class="cur-tag">机器人</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-3">
+      </article>
+      <article class="cur-card reveal reveal-delay-3">
         <p class="cur-num">04</p>
         <h3 class="cur-name">AI能"看"能"飞"</h3>
         <p class="cur-desc-text">AI视觉寻宝 + 无人机航拍的户外探索</p>
         <span class="cur-tag">无人机</span>
-      </div>
-      <div class="cur-card reveal">
+      </article>
+      <article class="cur-card reveal">
         <p class="cur-num">05</p>
         <h3 class="cur-name">AI是我的超级学伴</h3>
         <p class="cur-desc-text">用AI辅助写作文、做思维导图、解锁知识点</p>
         <span class="cur-tag">学习应用</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-1">
+      </article>
+      <article class="cur-card reveal reveal-delay-1">
         <p class="cur-num">06</p>
         <h3 class="cur-name">做属于我的东西</h3>
         <p class="cur-desc-text">选一个自己感兴趣的方向，启动个人项目</p>
         <span class="cur-tag">自选项目</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-2">
+      </article>
+      <article class="cur-card reveal reveal-delay-2">
         <p class="cur-num">07</p>
         <h3 class="cur-name">让想法变成真的</h3>
         <p class="cur-desc-text">AI辅助3D建模，打印出自己设计的实物作品</p>
         <span class="cur-tag">3D打印</span>
-      </div>
-      <div class="cur-card reveal reveal-delay-3">
+      </article>
+      <article class="cur-card reveal reveal-delay-3">
         <p class="cur-num">08</p>
         <h3 class="cur-name">看我做的！</h3>
         <p class="cur-desc-text">成果展。上台展示，家长到场，带走整本成长档案</p>
         <span class="cur-tag">成果展</span>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -679,27 +910,27 @@ footer .footer-logo {
     <p class="section-desc reveal">每节课一件带走的作品。以下是学员的真实创作。</p>
 
     <div class="works-grid">
-      <div class="work-card reveal reveal-delay-1">
-        <div class="work-img placeholder-1"></div>
+      <article class="work-card reveal reveal-delay-1">
+        <div class="work-img placeholder-1" role="img" aria-label="太空冒险互动游戏截图"></div>
         <div class="work-info">
           <h3 class="work-title">太空冒险互动游戏</h3>
           <p class="work-meta">小明 · 三年级 · 第2节课作品</p>
         </div>
-      </div>
-      <div class="work-card reveal reveal-delay-2">
-        <div class="work-img placeholder-2"></div>
+      </article>
+      <article class="work-card reveal reveal-delay-2">
+        <div class="work-img placeholder-2" role="img" aria-label="AI生成的奇幻绘本封面"></div>
         <div class="work-info">
           <h3 class="work-title">AI生成的奇幻绘本</h3>
           <p class="work-meta">小芳 · 四年级 · 第1节课作品</p>
         </div>
-      </div>
-      <div class="work-card reveal reveal-delay-3">
-        <div class="work-img placeholder-3"></div>
+      </article>
+      <article class="work-card reveal reveal-delay-3">
+        <div class="work-img placeholder-3" role="img" aria-label="3D打印火箭手机支架实物照片"></div>
         <div class="work-info">
           <h3 class="work-title">3D打印火箭手机支架</h3>
           <p class="work-meta">小宇 · 三年级 · 第7节课作品</p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -712,22 +943,22 @@ footer .footer-logo {
     <p class="section-desc reveal">课程由两所顶尖高校联合研发，技术与教育双核驱动。</p>
 
     <div class="team-grid">
-      <div class="team-member reveal reveal-delay-1">
-        <div class="team-avatar">L</div>
+      <article class="team-member reveal reveal-delay-1">
+        <div class="team-avatar" aria-hidden="true">L</div>
         <div>
           <h3 class="team-name">李老师</h3>
           <p class="team-role">课程总设计 · AI技术负责人</p>
           <p class="team-bio">上海交通大学人工智能专业博士。相信每个孩子都应该学会和AI共处，而不只是被AI包围。</p>
         </div>
-      </div>
-      <div class="team-member reveal reveal-delay-2">
-        <div class="team-avatar">W</div>
+      </article>
+      <article class="team-member reveal reveal-delay-2">
+        <div class="team-avatar" aria-hidden="true">W</div>
         <div>
           <h3 class="team-name">王老师</h3>
           <p class="team-role">课程运营 · 教研管理</p>
           <p class="team-bio">华东师范大学博士。负责课程的教学法设计与教师团队管理，确保每一节课都达到教育专业标准。</p>
         </div>
-      </div>
+      </article>
     </div>
 
     <div class="team-badges reveal">
@@ -756,25 +987,37 @@ footer .footer-logo {
   <div class="container">
     <h2 class="section-title reveal">让孩子早一步，<br>成为AI时代的原住民</h2>
     <p class="cta-sub reveal">扫码添加老师微信，预约一节免费试听课。<br>名额有限，每班仅收6-8名学员。</p>
-    <a href="tel:19121223457" class="cta-btn reveal">预约试听课</a>
+    <button type="button" class="cta-btn reveal" data-modal="wechat">预约试听课</button>
     <p class="cta-contact reveal" style="margin-top: 32px;">
       或致电 <a href="tel:19121223457">191-2122-3457</a> · 李老师
     </p>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
   <p class="footer-logo"><span style="color: var(--accent);">AI</span> Natives</p>
-  <p>© 2026 AI原住民 · 上海交通大学 × 华东师范大学联合教育团队</p>
+  <p>&copy; 2026 AI原住民 · 上海交通大学 × 华东师范大学联合教育团队</p>
 </footer>
+
+<!-- WECHAT QR MODAL -->
+<div class="modal-overlay" id="wechatModal" role="dialog" aria-modal="true" aria-label="微信扫码预约试听">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="关闭">&times;</button>
+    <h3 class="modal-title">扫码添加老师微信</h3>
+    <p class="modal-desc">预约免费试听课，了解课程详情</p>
+    <img class="modal-qr" src="weixin.png" alt="老师微信二维码，扫码添加好友预约试听" width="220" height="220" loading="lazy">
+    <p class="modal-hint">打开微信 → 扫一扫 → 添加好友</p>
+  </div>
+</div>
 
 <script>
 // Navbar scroll effect
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+}, { passive: true });
 
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
@@ -786,6 +1029,50 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
+
+// Mobile menu
+const hamburger = document.querySelector('.nav-hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const isOpen = hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+// WeChat QR Modal
+const modal = document.getElementById('wechatModal');
+const modalClose = modal.querySelector('.modal-close');
+
+function openModal(e) {
+  e.preventDefault();
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  modalClose.focus();
+}
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-modal="wechat"]').forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+});
 </script>
 
 </body>
