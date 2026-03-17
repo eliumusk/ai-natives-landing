@@ -89,7 +89,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="logo-D-icon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/logo-D-icon-64.png" sizes="64x64">
 <meta name="theme-color" content="#FAF7F2">
 
 <style>
@@ -490,18 +490,13 @@ section { padding: var(--space-section) 40px; }
 /* ===== WORKS ===== */
 .works { background: var(--bg); }
 .works-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 20px;
-  margin-top: 48px;
-}
-.works-grid .work-card:first-child {
-  grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
 }
 .work-card {
+  display: flex;
   border-radius: 12px;
   overflow: hidden;
   background: var(--card-bg);
@@ -509,23 +504,32 @@ section { padding: var(--space-section) 40px; }
   transition: all 0.3s;
 }
 .work-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
-.works-grid .work-card:first-child .work-img {
-  aspect-ratio: auto;
-  flex: 1;
-  min-height: 0;
-}
 .work-img {
-  width: 100%;
-  aspect-ratio: 16/9;
+  width: 42%;
+  max-height: 240px;
   object-fit: cover;
   display: block;
+  flex-shrink: 0;
 }
-.work-info { padding: 20px 24px; }
+.work-info {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .work-title {
   font-family: var(--serif-cn);
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin-bottom: 4px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.work-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 14px;
 }
 .work-meta {
   font-size: 0.78rem;
@@ -818,7 +822,8 @@ footer .footer-logo {
   .hero { padding: 100px 24px 60px; min-height: 90vh; }
   .capabilities { grid-template-columns: 1fr; gap: 20px; }
   .cur-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .works-grid { grid-template-columns: 1fr; gap: 20px; }
+  .work-card { flex-direction: column; }
+  .work-img { width: 100%; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; gap: 32px; }
   .team-badges { flex-direction: column; gap: 20px; }
@@ -965,30 +970,33 @@ footer .footer-logo {
 <!-- WORKS -->
 <section class="works" id="works">
   <div class="container">
-    <p class="section-label reveal">Student Works</p>
-    <h2 class="section-title reveal">孩子们的作品</h2>
-    <p class="section-desc reveal">每节课一件带走的作品。以下是学员的真实创作。</p>
+    <p class="section-label reveal">Works</p>
+    <h2 class="section-title reveal">AI原住民的创造现场</h2>
+    <p class="section-desc reveal">每节课都有一件带走的作品。以下是真实课堂记录。</p>
 
     <div class="works-grid">
       <article class="work-card reveal reveal-delay-1">
-        <img class="work-img" src="students-ai-classroom.jpg" alt="学员在教室用AI协作制作互动游戏" width="1200" height="654" loading="lazy">
+        <img class="work-img" src="assets/students-ai-classroom.jpg" alt="AI原住民在教室里用AI协作制作互动游戏" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">AI协作互动游戏</h3>
-          <p class="work-meta">课堂实拍 · 学员用AI指令设计游戏关卡</p>
+          <p class="work-desc">用自然语言描述游戏规则，AI生成可运行的互动游戏。从一句话到一个完整作品，孩子全程主导创作过程。</p>
+          <p class="work-meta">课堂实拍 · 第2课「我让AI帮我做游戏」</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-2">
-        <img class="work-img" src="students-drone-outdoor.jpg" alt="学员在户外用平板指挥无人机航拍" width="1200" height="654" loading="lazy">
+        <img class="work-img" src="assets/students-drone-outdoor.jpg" alt="AI原住民在户外用平板指挥无人机航拍" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">户外无人机航拍探索</h3>
-          <p class="work-meta">课堂实拍 · 学员用AI规划无人机飞行路线</p>
+          <p class="work-desc">用AI规划飞行路线，指挥无人机完成航拍任务。在真实场景中体验「提问—规划—执行」的完整闭环。</p>
+          <p class="work-meta">课堂实拍 · 第4课「AI能"看"能"飞"」</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-3">
-        <img class="work-img" src="student-3d-print-work.jpg" alt="学员展示自己的3D打印作品" width="1200" height="654" loading="lazy">
+        <img class="work-img" src="assets/student-3d-print-work.jpg" alt="AI原住民展示自己用AI辅助设计的3D打印作品" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">3D打印创意作品</h3>
-          <p class="work-meta">课堂实拍 · 学员展示AI辅助设计的3D打印成果</p>
+          <p class="work-desc">脑海中的想法，经AI辅助建模，变成手中实实在在的物件。从虚拟到实体，完成从0到1的创造。</p>
+          <p class="work-meta">课堂实拍 · 第7课「让想法变成真的」</p>
         </div>
       </article>
     </div>
@@ -1097,7 +1105,7 @@ footer .footer-logo {
     <button class="modal-close" aria-label="关闭">&times;</button>
     <h3 class="modal-title">扫码添加老师微信</h3>
     <p class="modal-desc">预约免费试听课，了解课程详情</p>
-    <img class="modal-qr" src="weixin.png" alt="老师微信二维码，扫码添加好友预约试听" width="220" loading="lazy">
+    <img class="modal-qr" src="assets/weixin.png" alt="老师微信二维码，扫码添加好友预约试听" width="220" loading="lazy">
     <p class="modal-hint">打开微信 → 扫一扫 → 添加好友</p>
   </div>
 </div>
