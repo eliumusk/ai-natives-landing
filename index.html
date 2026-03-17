@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Natives · AI原住民 — 面向AI时代的少儿思维培育</title>
+<meta name="description" content="让每个孩子成为AI时代的原住民。面向小学生的AI思维素质教育课程，不学编程，学思维。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAF7F2;
+  --bg-warm: #F5EDE0;
+  --text-primary: #1A1A1A;
+  --text-secondary: #5B4F47;
+  --text-muted: #8A7F76;
+  --accent: #E8A87C;
+  --accent-hover: #D4945F;
+  --blue: #4A6FA5;
+  --green: #5C8A6F;
+  --coral: #E07A5F;
+  --border: #E0D9D0;
+  --card-bg: #FFFFFF;
+  --serif-en: 'Playfair Display', Georgia, serif;
+  --serif-cn: 'Noto Serif SC', 'Songti SC', serif;
+  --sans-en: 'DM Sans', -apple-system, sans-serif;
+  --sans-cn: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  --max-w: 1080px;
+  --space-section: clamp(100px, 12vw, 160px);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--sans-cn);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent); color: white; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+}
+.nav-logo {
+  font-family: var(--serif-en);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: var(--sans-cn);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-cta {
+  font-family: var(--sans-cn);
+  font-size: 0.82rem;
+  padding: 8px 22px;
+  background: var(--text-primary);
+  color: var(--bg);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  letter-spacing: 0.03em;
+}
+.nav-cta:hover { background: var(--text-secondary); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,168,124,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; left: -5%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(74,111,165,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--sans-cn);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-title {
+  font-family: var(--serif-cn);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 700px;
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.hero-title em {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.hero-sub {
+  font-family: var(--sans-cn);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.9;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+.hero-cta {
+  display: inline-block;
+  font-family: var(--sans-cn);
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 16px 40px;
+  background: var(--text-primary);
+  color: var(--bg);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.8s forwards;
+}
+.hero-cta:hover { background: var(--text-secondary); transform: translateY(-1px); }
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.2s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px; height: 32px;
+  background: var(--border);
+  animation: scrollLine 2s ease infinite;
+}
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ===== SECTIONS ===== */
+section { padding: var(--space-section) 40px; }
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+.section-label {
+  font-family: var(--sans-en);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--serif-cn);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.section-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.9;
+}
+
+/* ===== PHILOSOPHY ===== */
+.philosophy { background: var(--bg); }
+.phil-contrast {
+  font-family: var(--serif-cn);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  text-align: center;
+  padding: 52px 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 48px 0 56px;
+}
+.phil-contrast strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.cap-card {
+  padding: 36px 32px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  transition: all 0.3s;
+}
+.cap-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.cap-num {
+  font-family: var(--serif-en);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.cap-title {
+  font-family: var(--serif-cn);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.cap-en {
+  font-family: var(--sans-en);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.cap-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ===== CURRICULUM ===== */
+.curriculum { background: var(--card-bg); }
+.cur-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.cur-card {
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.cur-card:hover { border-color: var(--accent); }
+.cur-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.cur-card:hover::before { transform: scaleX(1); }
+.cur-num {
+  font-family: var(--serif-en);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.cur-name {
+  font-family: var(--serif-cn);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.cur-desc-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.cur-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  margin-top: 14px;
+  letter-spacing: 0.03em;
+}
+
+/* ===== WORKS ===== */
+.works { background: var(--bg); }
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.work-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.work-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.work-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(135deg, #E8D5C4 0%, #C9B8A8 50%, #D4C4B0 100%);
+}
+.work-img.placeholder-1 { background: linear-gradient(135deg, #FFD4B8 0%, #FF9A76 50%, #E07A5F 100%); }
+.work-img.placeholder-2 { background: linear-gradient(135deg, #B8D4E3 0%, #7EB0CC 50%, #4A6FA5 100%); }
+.work-img.placeholder-3 { background: linear-gradient(135deg, #B8E3C8 0%, #7ECC96 50%, #5C8A6F 100%); }
+.work-info { padding: 20px 24px; }
+.work-title {
+  font-family: var(--serif-cn);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.work-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ===== TEAM ===== */
+.team { background: var(--card-bg); }
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.team-member {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.team-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+}
+.team-name {
+  font-family: var(--serif-cn);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.team-role {
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.team-bio {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.team-badges {
+  display: flex;
+  gap: 40px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  justify-content: center;
+}
+.team-badge {
+  text-align: center;
+}
+.team-badge-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.team-badge-name {
+  font-family: var(--serif-cn);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ===== CTA / CONTACT ===== */
+.cta-section {
+  background: var(--text-primary);
+  color: var(--bg);
+  text-align: center;
+  padding: var(--space-section) 40px;
+}
+.cta-section .section-title {
+  color: var(--bg);
+  margin-bottom: 16px;
+}
+.cta-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(250,247,242,0.6);
+  max-width: 420px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+.cta-btn {
+  display: inline-block;
+  font-family: var(--sans-cn);
+  font-size: 0.95rem;
+  padding: 16px 44px;
+  background: var(--accent);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.cta-contact {
+  margin-top: 40px;
+  font-size: 0.82rem;
+  color: rgba(250,247,242,0.4);
+}
+.cta-contact a {
+  color: rgba(250,247,242,0.6);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(250,247,242,0.2);
+  transition: color 0.2s;
+}
+.cta-contact a:hover { color: var(--bg); }
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 40px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  letter-spacing: 0.03em;
+}
+footer .footer-logo {
+  font-family: var(--serif-en);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+  section { padding: calc(var(--space-section) * 0.7) 24px; }
+  .hero { padding: 100px 24px 60px; min-height: 90vh; }
+  .capabilities { grid-template-columns: 1fr; gap: 20px; }
+  .cur-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .works-grid { grid-template-columns: 1fr; gap: 20px; }
+  .team-grid { grid-template-columns: 1fr; gap: 32px; }
+  .team-badges { flex-direction: column; gap: 20px; }
+}
+@media (max-width: 480px) {
+  .cur-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo"><span>AI</span> Natives</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">理念</a></li>
+    <li><a href="#curriculum">课程</a></li>
+    <li><a href="#works">作品</a></li>
+    <li><a href="#team">团队</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">预约试听</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">面向 8–12 岁 · 上海交通大学 × 华东师范大学</p>
+  <h1 class="hero-title">让每个孩子<br>成为 <em>AI</em> 时代的原住民</h1>
+  <p class="hero-sub">不学编程，学思维。<br>培养孩子向AI提问、指挥AI、用AI创造的核心能力。</p>
+  <a href="#contact" class="hero-cta">预约免费试听课</a>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <p class="section-label reveal">Our Philosophy</p>
+    <h2 class="section-title reveal">我们相信的事</h2>
+    <p class="section-desc reveal">AI时代已经到来。孩子需要的不是学会写代码，而是学会与AI协作的思维方式。</p>
+
+    <div class="phil-contrast reveal">
+      少儿编程教孩子<strong>写代码</strong>。<br>
+      我们教孩子<strong>指挥AI</strong>。
+    </div>
+
+    <div class="capabilities">
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-num">01</div>
+        <h3 class="cap-title">提问力</h3>
+        <p class="cap-en">Ask Better Questions</p>
+        <p class="cap-desc">你说得越清楚，AI就越厉害。学会用精确的语言描述需求，是AI时代最基础的能力。</p>
+      </div>
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-num">02</div>
+        <h3 class="cap-title">指挥力</h3>
+        <p class="cap-en">Command with Clarity</p>
+        <p class="cap-desc">把一个大想法拆成小步骤，逐步指挥AI完成。像导演一样，让AI成为你最好的执行者。</p>
+      </div>
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-num">03</div>
+        <h3 class="cap-title">创造力</h3>
+        <p class="cap-en">Create with AI</p>
+        <p class="cap-desc">脑子里的想法，用AI变成真的东西。一个游戏、一件3D打印作品、一个属于自己的项目。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="container">
+    <p class="section-label reveal">Curriculum</p>
+    <h2 class="section-title reveal">8节课，从好奇到创造</h2>
+    <p class="section-desc reveal">虚拟与物理交替体验，三大能力螺旋上升。每节课都有一个让孩子惊叹的瞬间。</p>
+
+    <div class="cur-grid">
+      <div class="cur-card reveal">
+        <p class="cur-num">01</p>
+        <h3 class="cur-name">AI听得懂我说话！</h3>
+        <p class="cur-desc-text">用AI画画、讲故事、做游戏，发现AI的能力边界</p>
+        <span class="cur-tag">屏幕AI</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-1">
+        <p class="cur-num">02</p>
+        <h3 class="cur-name">我让AI帮我做游戏</h3>
+        <p class="cur-desc-text">像导演一样分步指挥AI，做出自己的可玩游戏</p>
+        <span class="cur-tag">屏幕AI</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-2">
+        <p class="cur-num">03</p>
+        <h3 class="cur-name">AI也能动起来！</h3>
+        <p class="cur-desc-text">用语言指挥AI控制真实机器人完成任务</p>
+        <span class="cur-tag">机器人</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-3">
+        <p class="cur-num">04</p>
+        <h3 class="cur-name">AI能"看"能"飞"</h3>
+        <p class="cur-desc-text">AI视觉寻宝 + 无人机航拍的户外探索</p>
+        <span class="cur-tag">无人机</span>
+      </div>
+      <div class="cur-card reveal">
+        <p class="cur-num">05</p>
+        <h3 class="cur-name">AI是我的超级学伴</h3>
+        <p class="cur-desc-text">用AI辅助写作文、做思维导图、解锁知识点</p>
+        <span class="cur-tag">学习应用</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-1">
+        <p class="cur-num">06</p>
+        <h3 class="cur-name">做属于我的东西</h3>
+        <p class="cur-desc-text">选一个自己感兴趣的方向，启动个人项目</p>
+        <span class="cur-tag">自选项目</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-2">
+        <p class="cur-num">07</p>
+        <h3 class="cur-name">让想法变成真的</h3>
+        <p class="cur-desc-text">AI辅助3D建模，打印出自己设计的实物作品</p>
+        <span class="cur-tag">3D打印</span>
+      </div>
+      <div class="cur-card reveal reveal-delay-3">
+        <p class="cur-num">08</p>
+        <h3 class="cur-name">看我做的！</h3>
+        <p class="cur-desc-text">成果展。上台展示，家长到场，带走整本成长档案</p>
+        <span class="cur-tag">成果展</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="container">
+    <p class="section-label reveal">Student Works</p>
+    <h2 class="section-title reveal">孩子们的作品</h2>
+    <p class="section-desc reveal">每节课一件带走的作品。以下是学员的真实创作。</p>
+
+    <div class="works-grid">
+      <div class="work-card reveal reveal-delay-1">
+        <div class="work-img placeholder-1"></div>
+        <div class="work-info">
+          <h3 class="work-title">太空冒险互动游戏</h3>
+          <p class="work-meta">小明 · 三年级 · 第2节课作品</p>
+        </div>
+      </div>
+      <div class="work-card reveal reveal-delay-2">
+        <div class="work-img placeholder-2"></div>
+        <div class="work-info">
+          <h3 class="work-title">AI生成的奇幻绘本</h3>
+          <p class="work-meta">小芳 · 四年级 · 第1节课作品</p>
+        </div>
+      </div>
+      <div class="work-card reveal reveal-delay-3">
+        <div class="work-img placeholder-3"></div>
+        <div class="work-info">
+          <h3 class="work-title">3D打印火箭手机支架</h3>
+          <p class="work-meta">小宇 · 三年级 · 第7节课作品</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <p class="section-label reveal">Our Team</p>
+    <h2 class="section-title reveal">懂AI，也懂教育</h2>
+    <p class="section-desc reveal">课程由两所顶尖高校联合研发，技术与教育双核驱动。</p>
+
+    <div class="team-grid">
+      <div class="team-member reveal reveal-delay-1">
+        <div class="team-avatar">L</div>
+        <div>
+          <h3 class="team-name">李老师</h3>
+          <p class="team-role">课程总设计 · AI技术负责人</p>
+          <p class="team-bio">上海交通大学人工智能专业博士。相信每个孩子都应该学会和AI共处，而不只是被AI包围。</p>
+        </div>
+      </div>
+      <div class="team-member reveal reveal-delay-2">
+        <div class="team-avatar">W</div>
+        <div>
+          <h3 class="team-name">王老师</h3>
+          <p class="team-role">课程运营 · 教研管理</p>
+          <p class="team-bio">华东师范大学博士。负责课程的教学法设计与教师团队管理，确保每一节课都达到教育专业标准。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-badges reveal">
+      <div class="team-badge">
+        <p class="team-badge-label">技术研发</p>
+        <p class="team-badge-name">上海交通大学</p>
+      </div>
+      <div class="team-badge">
+        <p class="team-badge-label">教学设计</p>
+        <p class="team-badge-name">华东师范大学</p>
+      </div>
+      <div class="team-badge">
+        <p class="team-badge-label">班级规模</p>
+        <p class="team-badge-name">6–8人精品小班</p>
+      </div>
+      <div class="team-badge">
+        <p class="team-badge-label">适合年龄</p>
+        <p class="team-badge-name">小学二至五年级</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2 class="section-title reveal">让孩子早一步，<br>成为AI时代的原住民</h2>
+    <p class="cta-sub reveal">扫码添加老师微信，预约一节免费试听课。<br>名额有限，每班仅收6-8名学员。</p>
+    <a href="tel:19121223457" class="cta-btn reveal">预约试听课</a>
+    <p class="cta-contact reveal" style="margin-top: 32px;">
+      或致电 <a href="tel:19121223457">191-2122-3457</a> · 李老师
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo"><span style="color: var(--accent);">AI</span> Natives</p>
+  <p>© 2026 AI原住民 · 上海交通大学 × 华东师范大学联合教育团队</p>
+</footer>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
