@@ -498,6 +498,8 @@ section { padding: var(--space-section) 40px; }
 }
 .works-grid .work-card:first-child {
   grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
 }
 .work-card {
   border-radius: 12px;
@@ -509,7 +511,8 @@ section { padding: var(--space-section) 40px; }
 .work-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
 .works-grid .work-card:first-child .work-img {
   aspect-ratio: auto;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 .work-img {
   width: 100%;
@@ -968,21 +971,21 @@ footer .footer-logo {
 
     <div class="works-grid">
       <article class="work-card reveal reveal-delay-1">
-        <img class="work-img" src="students-ai-classroom.jpg" alt="学员在教室用AI协作制作互动游戏" width="1200" height="900" loading="lazy">
+        <img class="work-img" src="students-ai-classroom.jpg" alt="学员在教室用AI协作制作互动游戏" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">AI协作互动游戏</h3>
           <p class="work-meta">课堂实拍 · 学员用AI指令设计游戏关卡</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-2">
-        <img class="work-img" src="students-drone-outdoor.jpg" alt="学员在户外用平板指挥无人机航拍" width="1200" height="900" loading="lazy">
+        <img class="work-img" src="students-drone-outdoor.jpg" alt="学员在户外用平板指挥无人机航拍" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">户外无人机航拍探索</h3>
           <p class="work-meta">课堂实拍 · 学员用AI规划无人机飞行路线</p>
         </div>
       </article>
       <article class="work-card reveal reveal-delay-3">
-        <img class="work-img" src="student-3d-print-work.jpg" alt="学员展示自己的3D打印作品" width="1200" height="900" loading="lazy">
+        <img class="work-img" src="student-3d-print-work.jpg" alt="学员展示自己的3D打印作品" width="1200" height="654" loading="lazy">
         <div class="work-info">
           <h3 class="work-title">3D打印创意作品</h3>
           <p class="work-meta">课堂实拍 · 学员展示AI辅助设计的3D打印成果</p>
